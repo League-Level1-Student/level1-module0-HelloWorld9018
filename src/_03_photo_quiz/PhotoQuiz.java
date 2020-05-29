@@ -22,6 +22,8 @@ public class PhotoQuiz {
 		quizWindow.setVisible(true);
 		// This will make sure the program exits when you close the window
 		quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		int score = 0;
 
 //--------------------------------------BANANNA---------------------------------------------		
 		
@@ -42,10 +44,11 @@ String answer1 = JOptionPane.showInputDialog(null, "What color is the bananna?")
 		// 7. print "CORRECT" if the user gave the right answer
 if (answer1 .equalsIgnoreCase("yellow")) {
 	JOptionPane.showMessageDialog(null, "CORRECT");
+	score = score+1;
 }
 // 8. print "INCORRECT" if the answer is wrong
 else {
-	JOptionPane.showMessageDialog(null, "INCORRECT");
+	JOptionPane.showMessageDialog(null, "INCORRECT: The correct answer is yellow");
 }
 		// 9. remove the component from the quiz window (you may not see the
 		// effect of this until step 12)
@@ -67,9 +70,10 @@ String answer2 = JOptionPane.showInputDialog("What color is the apple?");
 		// 14+ check answer, say if correct or incorrect, etc.
 if (answer2 .equalsIgnoreCase("red")) {
 	JOptionPane.showMessageDialog(null, "CORRECT");
+	score = score+1;
 }
 else {
-	JOptionPane.showMessageDialog(null, "INCORRECT");
+	JOptionPane.showMessageDialog(null, "INCORRECT: The correct answer is red");
 }
 
 quizWindow.remove(holder);
@@ -84,9 +88,10 @@ String carrot = "https://www.alimentarium.org/en/system/files/thumbnails/image/A
 	
 	if (answer3 .equalsIgnoreCase("orange")) {
 		JOptionPane.showMessageDialog(null, "CORRECT");
+		score = score+1;
 	}
 	else {
-		JOptionPane.showMessageDialog(null, "INCORRECT");
+		JOptionPane.showMessageDialog(null, "INCORRECT: The correct answer is orange");
 	}
 	
 	quizWindow.remove(holder);
@@ -101,9 +106,10 @@ String carrot = "https://www.alimentarium.org/en/system/files/thumbnails/image/A
 	
 	if (answer4 .equalsIgnoreCase("green")) {
 		JOptionPane.showMessageDialog(null, "CORRECT");
+		score = score+1;
 	}
 	else {
-		JOptionPane.showMessageDialog(null, "INCORRECT");
+		JOptionPane.showMessageDialog(null, "INCORRECT: The corect answer is green");
 	}
 	
 	quizWindow.remove(holder);
@@ -118,9 +124,10 @@ String carrot = "https://www.alimentarium.org/en/system/files/thumbnails/image/A
 	
 	if (answer5 .equalsIgnoreCase("blue")) {
 		JOptionPane.showMessageDialog(null, "CORRECT");
+		score = score+1;
 	}
 	else {
-		JOptionPane.showMessageDialog(null, "INCORRECT");
+		JOptionPane.showMessageDialog(null, "INCORRECT: The corect answer is blue");
 	}
 	
 	quizWindow.remove(holder);
@@ -135,15 +142,31 @@ String carrot = "https://www.alimentarium.org/en/system/files/thumbnails/image/A
 	
 	if (answer6 .equalsIgnoreCase("purple")) {
 		JOptionPane.showMessageDialog(null, "CORRECT");
+		score = score+1;
 	}
 	else {
-		JOptionPane.showMessageDialog(null, "INCORRECT");
+		JOptionPane.showMessageDialog(null, "INCORRECT: The correct answer is purple");
 	}
 	
 	quizWindow.remove(holder);
 	
+	String answerkey = "https://i.ytimg.com/vi/7hfUBaFVVDE/maxresdefault.jpg";
+	holder = createImage(answerkey);
+	quizWindow.add(holder);
+	quizWindow.pack();
+	String words;
+	if (score <= 3) {
+	words = "Try again next time!";	
 	}
+	else {
+		words = "Keep up the good work!";
+	}
+	JOptionPane.showMessageDialog(null, "Your got " + score + " out of 6 correct answers. " + words);
 
+
+	}
+	
+	
 	private Component createImage(String imageUrl) throws MalformedURLException {
 		URL url = new URL(imageUrl);
 		Icon icon = new ImageIcon(url);
