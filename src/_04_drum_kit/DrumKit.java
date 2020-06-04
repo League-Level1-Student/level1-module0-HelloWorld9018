@@ -33,28 +33,28 @@ drumkit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 3. Set the size of the frame
 drumkit.setSize(200, 150);
 		// 4. Set the title of the frame
-
+drumkit.setTitle(" Music Jam");
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
-
+JPanel boxPanel = new JPanel();
 		// 6. Add the panel to the frame. (The panel is invisible.)
-
+drumkit.add(boxPanel);
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
 
 		// 8. Put the name of your image file in a String variable.
-
+String drumImg = ("drum.png");
 		// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
-
+drumLabelWithImage = createLabelImage(drumImg);
 		// 10. Add the image to the panel
-
+boxPanel.add(drumLabelWithImage);
 		// 11. Set the layout of the panel to "new GridLayout()"
-
+boxPanel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
-
+drumkit.pack();
 		// 13. add this mouse listener to drumLabelWithImage
-
+drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
 
@@ -63,7 +63,8 @@ drumkit.setSize(200, 150);
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-
+System.out.println("mouse clicked");
+		
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
@@ -73,7 +74,9 @@ drumkit.setSize(200, 150);
 		// leagueofamazing/code4life.
 
 		// 16. If they clicked on the drumImage...
-
+if (drumClicked .equals(drumLabelWithImage)) {
+	playSound("drum.wav");
+}
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
 
